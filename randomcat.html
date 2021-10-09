@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Display Random Cats</title>
+<!-- Import jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+    div.question-box {
+    margin: 10px 0 20px 0;
+    }
+    div.question-box > div {
+    margin-top: 30px;
+    }
+</style>
+<script>
+    function q1() {
+    $.ajax({
+        type: "GET",
+        url: "https://api.thecatapi.com/v1/images/search",
+        data: {},
+        success: function(response){
+            let imgurl = response[0]['url'];
+            $("#img-cat").attr("src", imgurl);
+            }
+        })
+    }
+</script>
+</head>
+<body>
+<h1>Show Me Random Cats!</h1>
+<hr/>
+<div class="question-box">
+<button onclick="q1()">Hit Me to See Cuttiee Cats</button>
+<div>
+<img id="img-cat" width="300" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92
+</div>
+</div>
+</body>
+</html>
